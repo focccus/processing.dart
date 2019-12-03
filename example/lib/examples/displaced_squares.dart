@@ -15,5 +15,4 @@ void displacedSquares() {
       );
     }
   }
-  rectMode(CORNER);
 }

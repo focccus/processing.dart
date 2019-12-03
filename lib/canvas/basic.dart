@@ -46,27 +46,27 @@ void noLoop() {
 }
 
 void fill(dynamic r, [int g, int b, int o]) {
-  c_actions.fillColor = getColor(r, g, b, o);
+  c_actions.style.fillColor = getColor(r, g, b, o);
 }
 
 void noFill() {
-  c_actions.fillColor = null;
+  c_actions.style.fillColor = null;
 }
 
 void stroke(dynamic r, [int g, int b, int o]) {
-  c_actions.strokeColor = getColor(r, g, b, o);
+  c_actions.style.strokeColor = getColor(r, g, b, o);
 }
 
 void strokeWeight(double weight) {
-  c_actions.strokeWidth = weight;
+  c_actions.style.strokeWidth = weight;
 }
 
 void rectMode(ShapePosition mode) {
-  c_actions.rectMode = mode;
+  c_actions.style.rectMode = mode;
 }
 
 void ellipseMode(ShapePosition mode) {
-  c_actions.ellipseMode = mode;
+  c_actions.style.ellipseMode = mode;
 }
 
 void angleMode(AngleMode mode) {
@@ -74,15 +74,33 @@ void angleMode(AngleMode mode) {
 }
 
 void rotate(double angle) {
-  var a = RotateAction(
-    c_actions.angleMode == AngleMode.RADIANS ? angle : angle * pi / 180,
-  );
-  c_actions.add(a);
+  var a = c_actions.angleMode == AngleMode.RADIANS ? angle : angle * pi / 180;
+  c_actions.add(RotateAction(a));
+  c_actions.style.rotation = a;
 }
 
 void translate(double dx, double dy) {
-  var a = TranslateAction(
-    Offset(dx, dy),
-  );
-  c_actions.add(a);
+  var a = Offset(dx, dy);
+  c_actions.add(TranslateAction(a));
+  c_actions.style.translate = a;
+}
+
+void push() {
+  c_actions.savedStyle = c_actions.style.copy();
+}
+
+void pop() {
+  if (c_actions.style.translate != c_actions.savedStyle.translate) {
+    c_actions.add(
+      TranslateAction(
+        c_actions.savedStyle.translate - c_actions.style.translate,
+      ),
+    );
+  }
+  if (c_actions.style.rotation != c_actions.savedStyle.rotation) {
+    c_actions.add(
+      RotateAction(c_actions.savedStyle.rotation - c_actions.style.rotation),
+    );
+  }
+  c_actions.style = c_actions.savedStyle.copy();
 }

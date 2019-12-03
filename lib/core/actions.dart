@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:processing.dart/canvas/constants.dart';
+import 'package:processing.dart/core/styles.dart';
 
 abstract class CanvasAction {
   void draw(Canvas canvas);
@@ -23,17 +24,12 @@ class CanvasActions {
   List<CanvasAction> _actions = [];
   List<CanvasAction> get actions => _actions;
 
-  Color fillColor;
-  Color strokeColor;
-  double strokeWidth = 1;
+  CanvasStyles style = CanvasStyles();
+  CanvasStyles savedStyle = CanvasStyles();
 
   int framerate = 30;
   bool doLoop = true;
-
   AngleMode angleMode = AngleMode.RADIANS;
-
-  ShapePosition rectMode = ShapePosition.CORNER;
-  ShapePosition ellipseMode = ShapePosition.CORNER;
 
   Color background = Color(0xffffffff);
 

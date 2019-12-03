@@ -1,12 +1,12 @@
 import 'dart:math';
 
-import 'package:processing.dart/core/actions/circle.dart';
+import 'package:processing.dart/core/actions/ellipse.dart';
 import 'package:processing.dart/processing.dart';
 
 void circlePacking() {
   stroke(0);
   fill(0);
-  List<CircleAction> circles = [];
+  List<EllipseAction> circles = [];
   double minRadius = 2;
   var maxRadius = 50;
   var totalCircles = 200;

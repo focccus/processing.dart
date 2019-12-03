@@ -31,6 +31,7 @@ void draw() {
   print("draw");
   background(255);
 
+  push();
   random([
     wallDrawing,
     randomRects,
@@ -51,11 +52,12 @@ void draw() {
     squarePacking,
     recursiveSquares,
   ])();
-  noFill();
+  pop();
 }
 
 void circleLines() {
   stroke(0);
+
   translate(width / 2, height / 2);
   final angle = TWO_PI / 6;
   for (var i = 0; i < 6; i++) {
@@ -63,5 +65,4 @@ void circleLines() {
     line(0, 0, 100, 0);
   }
   circle(0, 0, 100);
-  translate(-width / 2, -height / 2);
 }
