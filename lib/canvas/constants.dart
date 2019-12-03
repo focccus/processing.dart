@@ -13,6 +13,8 @@ ShapePosition get CORNERS => ShapePosition.CORNERS;
 ShapePosition get RADIUS => ShapePosition.RADIUS;
 ShapePosition get CENTER => ShapePosition.CENTER;
 
+double get GRATIO => (1 + sqrt(5)) / 2;
+
 double get PI => pi;
 double get HALF_PI => pi / 2;
 double get QUARTER_PI => pi / 4;

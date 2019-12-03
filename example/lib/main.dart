@@ -57,6 +57,7 @@ void draw() {
     spider,
     parallelism,
     randomTiltedLines,
+    goldenRatioSpiral,
   ])();
   pop();
 }
