@@ -5,9 +5,12 @@ import 'examples/dots.dart';
 import 'examples/hypnotic_circles.dart';
 import 'examples/hypnotic_squares.dart';
 import 'examples/lines_totop.dart';
+import 'examples/parallelism.dart';
 import 'examples/random_rects.dart';
 import 'examples/recursive_squares.dart';
+import 'examples/rotated_lines.dart';
 import 'examples/sized_dots.dart';
+import 'examples/spider.dart';
 import 'examples/spiral.dart';
 import 'examples/square_packing.dart';
 import 'examples/tiled_arcs.dart';
@@ -51,6 +54,9 @@ void draw() {
     displacedSquares,
     squarePacking,
     recursiveSquares,
+    spider,
+    parallelism,
+    randomTiltedLines,
   ])();
   pop();
 }

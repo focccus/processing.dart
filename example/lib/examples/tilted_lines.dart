@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:processing.dart/processing.dart';
 
 void tiltedLines() {
@@ -74,5 +76,30 @@ void tiltedMultiLinesConfused() {
       drawLine(x, y, step.toDouble(), step.toDouble(), 20);
     }
   }
-  //drawLine(0, 0, width, height, 100);
+}
+
+void randomTiltedLines() {
+  stroke(0);
+  strokeWeight(2);
+
+  final double step = width / random(10, 50);
+  final linewidth = sqrt(2 * pow(step, 2));
+
+  drawLine(double x, double y, double w, double h) {
+    if (random(true)) {
+      double offset = random(w / 2);
+
+      line(x + w / 2 - offset, y, x + w / 2 + offset, y + h);
+    } else {
+      double offset = random(1, h / 2);
+
+      line(x, y + h / 2 - offset, x + w, y + h / 2 + offset);
+    }
+  }
+
+  for (double x = 0; x < width; x += step) {
+    for (double y = 0; y < height; y += step) {
+      drawLine(x, y, step, step);
+    }
+  }
 }
