@@ -4,8 +4,7 @@ import 'package:processing.dart/core/actions/ellipse.dart';
 import 'package:processing.dart/processing.dart';
 
 void circlePacking() {
-  stroke(0);
-  fill(0);
+  random(true) ? stroke(0) : fill(0);
   List<EllipseAction> circles = [];
   double minRadius = 2;
   var maxRadius = 50;

@@ -17,7 +17,7 @@ class EllipseAction extends CanvasAction with FillableAction, StrokeAction {
   }
 
   double get radius => box.width / 2;
-  Offset get offset => box.topLeft;
+  Offset get offset => box.center;
 
   draw(Canvas c) {
     if (fill != null) {
