@@ -58,6 +58,7 @@ void draw() {
     parallelism,
     randomTiltedLines,
     goldenRatioSpiral,
+    tiledQuarterCircles,
   ])();
   pop();
 }

@@ -39,3 +39,31 @@ void tiledArcs() {
     }
   }
 }
+
+void tiledQuarterCircles() {
+  final double step = width / random(8, 30);
+
+  stroke(0);
+  strokeWeight(2);
+  void drawCircle(
+    double x,
+    double y,
+    double r,
+  ) {
+    if (random(true)) {
+      arc(x, y, r, r, 0, HALF_PI, false);
+      arc(x + r, y + r, r, r, PI, 3 * HALF_PI, false);
+    } else {
+      arc(x + r, y, r, r, HALF_PI, PI, false);
+      arc(x, y + r, r, r, 3 * HALF_PI, TWO_PI, false);
+      circle(0, 0, 1);
+    }
+  }
+
+  for (double x = 0; x < width; x += step) {
+    for (double y = 0; y < height; y += step) {
+      drawCircle(x, y, step);
+    }
+  }
+  //drawCircle(0, 0, width);
+}

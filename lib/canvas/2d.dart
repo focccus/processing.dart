@@ -59,16 +59,23 @@ EllipseAction ellipse(double x, double y, double w, [double h]) {
 }
 
 ArcAction arc(
-    double x, double y, double w, double h, double start, double end) {
-  final o = Rect.fromLTWH(x, y, w, h);
+  double x,
+  double y,
+  double w,
+  double h,
+  double start,
+  double end, [
+  bool close = true,
+]) {
+  final o = _getRectWithMode(x, y, w, h, c_actions.style.ellipseMode);
   var a = ArcAction(
-    o,
-    c_actions.angleMode == AngleMode.RADIANS ? start : start * pi / 180,
-    c_actions.angleMode == AngleMode.RADIANS ? end : end * pi / 180,
-    c_actions.style.fillColor,
-    c_actions.style.strokeColor,
-    c_actions.style.strokeWidth,
-  );
+      o,
+      c_actions.angleMode == AngleMode.RADIANS ? start : start * pi / 180,
+      c_actions.angleMode == AngleMode.RADIANS ? end : end * pi / 180,
+      c_actions.style.fillColor,
+      c_actions.style.strokeColor,
+      c_actions.style.strokeWidth,
+      close);
   c_actions.add(a);
   return a;
 }
