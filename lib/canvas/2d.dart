@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:processing.dart/canvas/constants.dart';
 import 'package:processing.dart/core/actions.dart';
 import 'package:processing.dart/core/actions/arc.dart';
+import 'package:processing.dart/core/actions/bezier.dart';
 import 'package:processing.dart/core/actions/ellipse.dart';
 import 'package:processing.dart/core/actions/line.dart';
 import 'package:processing.dart/core/actions/rect.dart';
@@ -46,6 +47,25 @@ EllipseAction circle(double x, double y, double r) {
   return ellipse(x, y, 2 * r);
 }
 
+EllipseAction point(double x, double y) {
+  final o = _getRectWithMode(
+    x,
+    y,
+    c_actions.style.strokeWidth,
+    c_actions.style.strokeWidth,
+    c_actions.style.ellipseMode,
+  );
+
+  var a = EllipseAction(
+    o,
+    c_actions.style.strokeColor,
+    null,
+    1,
+  );
+  c_actions.add(a);
+  return a;
+}
+
 EllipseAction ellipse(double x, double y, double w, [double h]) {
   final o = _getRectWithMode(x, y, w, h ?? w, c_actions.style.ellipseMode);
   var a = EllipseAction(
@@ -84,6 +104,28 @@ LineAction line(double x1, double y1, double x2, double y2) {
   var a = LineAction(
     Offset(x1, y1),
     Offset(x2, y2),
+    c_actions.style.strokeColor,
+    c_actions.style.strokeWidth,
+  );
+  c_actions.add(a);
+  return a;
+}
+
+BezierAction bezier(
+  double x1,
+  double y1,
+  double x2,
+  double y2,
+  double x3,
+  double y3, [
+  double x4,
+  double y4,
+]) {
+  var a = BezierAction(
+    Offset(x1, y1),
+    Offset(x2, y2),
+    Offset(x3, y3),
+    x4 != null && y4 != null ? Offset(x4, y4) : null,
     c_actions.style.strokeColor,
     c_actions.style.strokeWidth,
   );

@@ -1,4 +1,8 @@
 import 'package:processing.dart/processing.dart';
+import 'package:processing_example/examples/braid_crossings.dart';
+import 'package:processing_example/examples/dot_cross_gradient.dart';
+import 'package:processing_example/examples/dotted_gradient.dart';
+import 'package:processing_example/examples/random_lines.dart';
 import 'examples/circle_packing.dart';
 import 'examples/displaced_squares.dart';
 import 'examples/dots.dart';
@@ -59,7 +63,12 @@ void draw() {
     randomTiltedLines,
     goldenRatioSpiral,
     tiledQuarterCircles,
+    dottedGradient,
+    randomLines,
+    braidCrossing,
+    dotCrossGradient,
   ])();
+
   pop();
 }
 

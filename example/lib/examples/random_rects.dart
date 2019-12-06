@@ -1,12 +1,12 @@
 import 'package:processing.dart/processing.dart';
 
 void randomRects() {
-  final rectCount = 20;
+  final count = random(10, 50);
   translate(width / 2, height / 2);
   rectMode(CENTER);
   strokeWeight(2);
   stroke(0);
-  for (var i = 0; i < rectCount; i++) {
+  for (var i = 0; i < count; i++) {
     rect(
       (random() * 2 - 1) * width / 3,
       (random() * 2 - 1) * height / 3,
