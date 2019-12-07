@@ -8,6 +8,7 @@ import 'package:processing.dart/core/actions/bezier.dart';
 import 'package:processing.dart/core/actions/ellipse.dart';
 import 'package:processing.dart/core/actions/line.dart';
 import 'package:processing.dart/core/actions/rect.dart';
+import 'package:processing.dart/core/actions/triangle.dart';
 
 Rect _getRectWithMode(
   double x,
@@ -126,6 +127,26 @@ BezierAction bezier(
     Offset(x2, y2),
     Offset(x3, y3),
     x4 != null && y4 != null ? Offset(x4, y4) : null,
+    c_actions.style.strokeColor,
+    c_actions.style.strokeWidth,
+  );
+  c_actions.add(a);
+  return a;
+}
+
+TriangleAction triangle(
+  double x1,
+  double y1,
+  double x2,
+  double y2,
+  double x3,
+  double y3,
+) {
+  var a = TriangleAction(
+    Offset(x1, y1),
+    Offset(x2, y2),
+    Offset(x3, y3),
+    c_actions.style.fillColor,
     c_actions.style.strokeColor,
     c_actions.style.strokeWidth,
   );

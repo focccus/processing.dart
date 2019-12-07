@@ -11,6 +11,7 @@ import 'examples/hypnotic_squares.dart';
 import 'examples/lines_totop.dart';
 import 'examples/parallelism.dart';
 import 'examples/random_rects.dart';
+import 'examples/random_triangles.dart';
 import 'examples/recursive_squares.dart';
 import 'examples/rotated_lines.dart';
 import 'examples/sized_dots.dart';
@@ -39,36 +40,35 @@ void draw() {
   background(255);
 
   push();
-  random([
-    wallDrawing,
-    randomRects,
-    tiledSquares,
-    tiledArcs,
-    hypnoticSquares,
-    hypnoticCircles,
-    tiltedLines,
-    tiltedMultiLinesConfused,
-    tiltedMultiLines,
-    spiral,
-    circleLines,
-    dots,
-    linesBottomTop,
-    circlePacking,
-    sizedDots,
-    displacedSquares,
-    squarePacking,
-    recursiveSquares,
-    spider,
-    parallelism,
-    randomTiltedLines,
-    goldenRatioSpiral,
-    tiledQuarterCircles,
-    dottedGradient,
-    randomLines,
-    braidCrossing,
-    dotCrossGradient,
-  ])();
-
+  // random([
+  //   wallDrawing,
+  //   randomRects,
+  //   tiledSquares,
+  //   tiledArcs,
+  //   hypnoticSquares,
+  //   hypnoticCircles,
+  //   tiltedLines,
+  //   tiltedMultiLinesConfused,
+  //   tiltedMultiLines,
+  //   spiral,
+  //   dots,
+  //   linesBottomTop,
+  //   circlePacking,
+  //   sizedDots,
+  //   displacedSquares,
+  //   squarePacking,
+  //   recursiveSquares,
+  //   spider,
+  //   parallelism,
+  //   randomTiltedLines,
+  //   goldenRatioSpiral,
+  //   tiledQuarterCircles,
+  //   dottedGradient,
+  //   randomLines,
+  //   braidCrossing,
+  //   dotCrossGradient,
+  // ])();
+  randomRectTriangles();
   pop();
 }
 
