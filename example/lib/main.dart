@@ -4,6 +4,7 @@ import 'package:processing_example/examples/circle_pattern.dart';
 import 'package:processing_example/examples/dot_cross_gradient.dart';
 import 'package:processing_example/examples/dotted_gradient.dart';
 import 'package:processing_example/examples/random_lines.dart';
+import 'package:processing_example/examples/square_fractal.dart';
 import 'examples/circle_packing.dart';
 import 'examples/displaced_squares.dart';
 import 'examples/dots.dart';
@@ -23,6 +24,7 @@ import 'examples/square_packing.dart';
 import 'examples/tiled_arcs.dart';
 import 'examples/tiled_squares.dart';
 import 'examples/tilted_lines.dart';
+import 'examples/triangle_fractal.dart';
 import 'examples/wall_drawing.dart';
 
 void main() => start(
@@ -42,43 +44,44 @@ void draw() {
   background(255);
 
   push();
-  // random([
-  //   wallDrawing,
-  //   randomRects,
-  //   tiledSquares,
-  //   tiledArcs,
-  //   hypnoticSquares,
-  //   hypnoticCircles,
-  //   tiltedLines,
-  //   tiltedMultiLinesConfused,
-  //   tiltedMultiLines,
-  //   spiral,
-  //   dots,
-  //   linesBottomTop,
-  //   circlePacking,
-  //   sizedDots,
-  //   displacedSquares,
-  //   squarePacking,
-  //   recursiveSquares,
-  //   spider,
-  //   parallelism,
-  //   randomTiltedLines,
-  //   goldenRatioSpiral,
-  //   tiledQuarterCircles,
-  //   dottedGradient,
-  //   randomLines,
-  //   braidCrossing,
-  //   dotCrossGradient,
-  // randomRectTriangles,
-  // randomTriangles,
-  // simpleHexagonPattern,
-  // randomHexagonPattern,
-  // simpleCirclePattern,
-  // randomCirclePattern,
-  // spacedCirclePattern,
-  // spacedHexagonPattern,
-  // ])();
-  spacedHexagonPattern();
+  random([
+    wallDrawing,
+    randomRects,
+    tiledSquares,
+    tiledArcs,
+    hypnoticSquares,
+    hypnoticCircles,
+    tiltedLines,
+    tiltedMultiLinesConfused,
+    tiltedMultiLines,
+    spiral,
+    dots,
+    linesBottomTop,
+    circlePacking,
+    sizedDots,
+    displacedSquares,
+    squarePacking,
+    recursiveSquares,
+    spider,
+    parallelism,
+    randomTiltedLines,
+    goldenRatioSpiral,
+    tiledQuarterCircles,
+    dottedGradient,
+    randomLines,
+    braidCrossing,
+    dotCrossGradient,
+    randomRectTriangles,
+    randomTriangles,
+    simpleHexagonPattern,
+    randomHexagonPattern,
+    simpleCirclePattern,
+    randomCirclePattern,
+    spacedCirclePattern,
+    spacedHexagonPattern,
+    squareFractal,
+    triangleFractal,
+  ])();
   pop();
 }
 
@@ -86,6 +89,7 @@ void circleLines() {
   stroke(0);
 
   translate(width / 2, height / 2);
+
   final angle = TWO_PI / 6;
   for (var i = 0; i < 6; i++) {
     rotate(angle);
