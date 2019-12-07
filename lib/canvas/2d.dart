@@ -7,6 +7,7 @@ import 'package:processing.dart/core/actions/arc.dart';
 import 'package:processing.dart/core/actions/bezier.dart';
 import 'package:processing.dart/core/actions/ellipse.dart';
 import 'package:processing.dart/core/actions/line.dart';
+import 'package:processing.dart/core/actions/polygon.dart';
 import 'package:processing.dart/core/actions/rect.dart';
 import 'package:processing.dart/core/actions/triangle.dart';
 
@@ -146,6 +147,24 @@ TriangleAction triangle(
     Offset(x1, y1),
     Offset(x2, y2),
     Offset(x3, y3),
+    c_actions.style.fillColor,
+    c_actions.style.strokeColor,
+    c_actions.style.strokeWidth,
+  );
+  c_actions.add(a);
+  return a;
+}
+
+PolygonAction polygon(
+  double x,
+  double y,
+  double r,
+  int n,
+) {
+  final o = _getRectWithMode(x, y, r * 2, r * 2, c_actions.style.ellipseMode);
+  var a = PolygonAction(
+    o,
+    n,
     c_actions.style.fillColor,
     c_actions.style.strokeColor,
     c_actions.style.strokeWidth,

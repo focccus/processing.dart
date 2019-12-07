@@ -1,11 +1,13 @@
 import 'package:processing.dart/processing.dart';
 import 'package:processing_example/examples/braid_crossings.dart';
+import 'package:processing_example/examples/circle_pattern.dart';
 import 'package:processing_example/examples/dot_cross_gradient.dart';
 import 'package:processing_example/examples/dotted_gradient.dart';
 import 'package:processing_example/examples/random_lines.dart';
 import 'examples/circle_packing.dart';
 import 'examples/displaced_squares.dart';
 import 'examples/dots.dart';
+import 'examples/hexagon_patterns.dart';
 import 'examples/hypnotic_circles.dart';
 import 'examples/hypnotic_squares.dart';
 import 'examples/lines_totop.dart';
@@ -67,8 +69,16 @@ void draw() {
   //   randomLines,
   //   braidCrossing,
   //   dotCrossGradient,
+  // randomRectTriangles,
+  // randomTriangles,
+  // simpleHexagonPattern,
+  // randomHexagonPattern,
+  // simpleCirclePattern,
+  // randomCirclePattern,
+  // spacedCirclePattern,
+  // spacedHexagonPattern,
   // ])();
-  randomRectTriangles();
+  spacedHexagonPattern();
   pop();
 }
 
@@ -82,4 +92,5 @@ void circleLines() {
     line(0, 0, 100, 0);
   }
   circle(0, 0, 100);
+  polygon(0, 0, 100, 6);
 }
