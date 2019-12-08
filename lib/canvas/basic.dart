@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'dart:math' as m;
 import 'dart:ui';
 
 import 'package:processing.dart/canvas/constants.dart';
@@ -11,7 +11,7 @@ void frameRate(int framerate) {
 }
 
 dynamic random([dynamic from, num to]) {
-  var rng = new Random();
+  var rng = new m.Random();
 
   if (from == null) return rng.nextDouble();
 
@@ -74,7 +74,7 @@ void angleMode(AngleMode mode) {
 }
 
 void rotate(double angle) {
-  var a = c_actions.angleMode == AngleMode.RADIANS ? angle : angle * pi / 180;
+  var a = c_actions.angleMode == AngleMode.RADIANS ? angle : angle * PI / 180;
   c_actions.add(RotateAction(a));
   c_actions.style.rotation = a;
 }
@@ -104,3 +104,46 @@ void pop() {
   }
   c_actions.style = c_actions.savedStyle.copy();
 }
+
+T max<T extends num>(dynamic n1, [T n2, T n3, T n4]) {
+  List<T> numbers = [];
+  if (n1 is List<T>)
+    numbers = n1;
+  else if (n1 is T) {
+    numbers.add(n1);
+    if (n2 != null) numbers.add(n2);
+    if (n3 != null) numbers.add(n3);
+    if (n4 != null) numbers.add(n4);
+  } else
+    throw ("Please insert either a list of numbers or the induvidual numbers");
+
+  num max = 0;
+
+  numbers.forEach((T n) {
+    if (n > max) max = n;
+  });
+  return (max as T);
+}
+
+T min<T extends num>(dynamic n1, [T n2, T n3, T n4]) {
+  List<T> numbers = [];
+  if (n1 is List<T>)
+    numbers = n1;
+  else if (n1 is T) {
+    numbers.add(n1);
+    if (n2 != null) numbers.add(n2);
+    if (n3 != null) numbers.add(n3);
+    if (n4 != null) numbers.add(n4);
+  } else
+    throw ("Please insert either a list of numbers or the induvidual numbers");
+
+  T min;
+
+  numbers.forEach((T n) {
+    if (min == null) min = n;
+    if (n < min) min = n;
+  });
+  return min;
+}
+
+T abs<T extends num>(T n) => n.abs();

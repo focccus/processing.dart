@@ -13,6 +13,7 @@ import 'examples/hypnotic_circles.dart';
 import 'examples/hypnotic_squares.dart';
 import 'examples/lines_totop.dart';
 import 'examples/parallelism.dart';
+import 'examples/random_crossing.dart';
 import 'examples/random_rects.dart';
 import 'examples/random_triangles.dart';
 import 'examples/recursive_squares.dart';
@@ -26,6 +27,7 @@ import 'examples/tiled_squares.dart';
 import 'examples/tilted_lines.dart';
 import 'examples/triangle_fractal.dart';
 import 'examples/wall_drawing.dart';
+import 'examples/joy_division.dart';
 
 void main() => start(
       setup: setup,
@@ -74,6 +76,8 @@ void draw() {
     randomRectTriangles,
     randomTriangles,
     simpleHexagonPattern,
+    complexHexagonPattern,
+    simpleSpacedHexagonPattern,
     randomHexagonPattern,
     simpleCirclePattern,
     randomCirclePattern,
@@ -81,6 +85,8 @@ void draw() {
     spacedHexagonPattern,
     squareFractal,
     triangleFractal,
+    joyDivision,
+    randomCrossing,
   ])();
   pop();
 }
