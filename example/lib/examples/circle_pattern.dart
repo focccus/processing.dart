@@ -27,10 +27,8 @@ void randomCirclePattern() {
 
   for (double i = -2 * step; i < width; i += step) {
     for (double j = -2 * step; j < height; j += step * 2 * sin(PI / 3)) {
-      push();
       fill(0, 0, 0, random(0, 100));
       _drawcircle(i, j, step);
-      pop();
     }
   }
 }

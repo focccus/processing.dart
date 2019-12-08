@@ -4,10 +4,10 @@ import 'package:processing.dart/processing.dart';
 
 void squarePacking() {
   List<Rect> squares = [];
-  double minSize = 5;
-  var maxSize = 100;
-  var total = 400;
-  var createAttempts = 200;
+  final double minSize = 5;
+  final maxSize = 100;
+  final total = 400;
+  final createAttempts = 200;
   double spacing = 0;
   if (random(true)) {
     fill(0);

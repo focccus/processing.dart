@@ -1,7 +1,7 @@
 import 'package:processing.dart/processing.dart';
 
 void sizedDots() {
-  var step = width / random(10, 40);
+  final step = width / random(10, 40);
   for (double i = 0; i < width; i += step) {
     for (double j = 0; j < height; j += step) {
       fill(random(0, 200));

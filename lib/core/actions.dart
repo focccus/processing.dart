@@ -25,7 +25,7 @@ class CanvasActions {
   List<CanvasAction> get actions => _actions;
 
   CanvasStyles style = CanvasStyles();
-  CanvasStyles savedStyle = CanvasStyles();
+  List<CanvasStyles> savedStyles = [];
 
   int framerate = 30;
   bool doLoop = true;

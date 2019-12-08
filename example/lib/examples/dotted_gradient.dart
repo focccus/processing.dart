@@ -1,7 +1,7 @@
 import 'package:processing.dart/processing.dart';
 
 void dottedGradient() {
-  var step = width / random(20, 100);
+  final step = width / random(20, 100);
   final dir = random(-1, 2) + random(-1, 2);
   print(dir);
   strokeWeight(step);

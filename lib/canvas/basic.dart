@@ -86,23 +86,26 @@ void translate(double dx, double dy) {
 }
 
 void push() {
-  c_actions.savedStyle = c_actions.style.copy();
+  c_actions.savedStyles.add(c_actions.style.copy());
 }
 
 void pop() {
-  if (c_actions.style.translate != c_actions.savedStyle.translate) {
+  var last = c_actions.savedStyles.last;
+
+  if (c_actions.style.translate != last.translate) {
     c_actions.add(
       TranslateAction(
-        c_actions.savedStyle.translate - c_actions.style.translate,
+        last.translate - c_actions.style.translate,
       ),
     );
   }
-  if (c_actions.style.rotation != c_actions.savedStyle.rotation) {
+  if (c_actions.style.rotation != last.rotation) {
     c_actions.add(
-      RotateAction(c_actions.savedStyle.rotation - c_actions.style.rotation),
+      RotateAction(last.rotation - c_actions.style.rotation),
     );
   }
-  c_actions.style = c_actions.savedStyle.copy();
+  c_actions.style = last.copy();
+  c_actions.savedStyles.removeLast();
 }
 
 T max<T extends num>(dynamic n1, [T n2, T n3, T n4]) {

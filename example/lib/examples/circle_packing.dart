@@ -6,10 +6,10 @@ import 'package:processing.dart/processing.dart';
 void circlePacking() {
   random(true) ? stroke(0) : fill(0);
   List<EllipseAction> circles = [];
-  double minRadius = 2;
-  var maxRadius = 50;
-  var totalCircles = 200;
-  var createCircleAttempts = 200;
+  final double minRadius = 2;
+  final maxRadius = 50;
+  final totalCircles = 200;
+  final createCircleAttempts = 200;
 
   bool doesCircleHaveACollision(double x, double y, double r) {
     // Return true of false depending on whether the circle collides with another.

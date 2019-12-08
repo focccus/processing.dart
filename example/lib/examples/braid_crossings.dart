@@ -6,7 +6,6 @@ void braidCrossing() {
   stroke(0);
 
   drawCrossing(double x, double y, double w, double h) {
-    push();
     translate(x, y);
     if (random(true)) {
       bezier(0, 0, 0, h / 3, w / 2.2, h / 2.1);
@@ -19,7 +18,7 @@ void braidCrossing() {
       bezier(w, 0, w, h / 3, w / 1.8, h / 2.1);
       bezier(0, h, 0, h - h / 3, w / 2.2, h / 1.9);
     }
-    pop();
+    translate(-x, -y);
   }
 
   drawStraight(double x, double y, double w, double h) {
