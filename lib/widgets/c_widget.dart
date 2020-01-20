@@ -14,9 +14,9 @@ class CanvasWidget extends StatefulWidget {
   CanvasWidget({
     @required this.setup,
     @required this.draw,
-    @required this.onTap,
-    @required this.onTapDown,
-    @required this.onTapUp,
+    this.onTap,
+    this.onTapDown,
+    this.onTapUp,
   })  : assert(setup != null),
         assert(draw != null);
 
@@ -27,6 +27,7 @@ class CanvasWidget extends StatefulWidget {
 class _CanvasWidgetState extends State<CanvasWidget> {
   int prevLength = 0;
   int myCanvas;
+  Timer timer;
   @override
   void initState() {
     addActions();
@@ -34,7 +35,8 @@ class _CanvasWidgetState extends State<CanvasWidget> {
     widget.setup();
     widget.draw();
     prevLength = c_actions.actions.length;
-    Timer.periodic(Duration(microseconds: 1000000 ~/ c_actions.framerate), (_) {
+    timer = Timer.periodic(
+        Duration(microseconds: 1000000 ~/ c_actions.framerate), (_) {
       if (c_actions.doLoop) {
         _setCurrentCanvas();
         widget.draw();
@@ -51,6 +53,12 @@ class _CanvasWidgetState extends State<CanvasWidget> {
 
   _setCurrentCanvas() {
     selectedActions = myCanvas;
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override
